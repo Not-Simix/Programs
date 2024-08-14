@@ -26,15 +26,38 @@ def get_character_list():
         print(f"Error: Unable to fetch server status. Status code: {response.status_code}")
         return None
 
-# 
+# Function to get the individual character information
+# def get_character_data():
+#     endpoint = f"{API_URL}/player/{player_name}/characters/{character_UUID}"
+#     response = requests.get(endpoint)
+    
+#     if response.status_code == 200:
+#         return response.json()
+#     else:
+#         print(f"Error: Unable to fetch server status. Status code: {response.status_code}")
+#         return None
+
+# # Function to get those characters ability maps
+# def get_character_abilities():
+#     for
+    
+#     endpoint = f"{API_URL}/player/{player_name}/characters/{character_UUID}/abilities"
+#     response = requests.get(endpoint)
+    
+#     if response.status_code == 200:
+#         return response.json()
+#     else:
+#         print(f"Error: Unable to fetch server status. Status code: {response.status_code}")
+#         return None
 
 # Usage
 if __name__ == "__main__":
     # Prompt the user for a player name
     player_name = input("Enter the player name: ")
+    character_UUID = 0 # Implement if 0 ERROR message
 
     # File to save requests
-    File_object = open(player_name+'.json', 'w+')
+    file_object = open(player_name+'.json', 'w+')
 
     # Get player stats
     player_stats = get_player_stats(player_name)
@@ -49,5 +72,14 @@ if __name__ == "__main__":
         print("\nCharacter List:")
         print(character_list)
         json.dump(character_list, File_object, indent = 6)
+
+    # # Get character data and abilities
+    
+    
+    # character_data = get_character_data()
+    # if character_data:
+    #     print("\nCharacter Data:")
+    #     print(character_data)
+    #     json.dump(character_data, File_object, indent = 6)  
 
     File_object.close()
