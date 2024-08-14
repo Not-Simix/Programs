@@ -38,6 +38,7 @@ def get_character_list():
 #         print(f"Error: Unable to fetch server status. Status code: {response.status_code}")
 #         return None
 
+
 # Usage
 if __name__ == "__main__":
     # Prompt the user for a player name
