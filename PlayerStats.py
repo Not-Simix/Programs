@@ -6,7 +6,7 @@ API_URL = "https://api.wynncraft.com/v3"
 
 # Function to get player statistics
 def get_player_stats(player_name):
-    endpoint = f"{API_URL}/player/{player_name}"
+    endpoint = f"{API_URL}/player/{player_name}" #Add ?fullResult for all character data
     response = requests.get(endpoint)
     
     if response.status_code == 200:
@@ -26,20 +26,8 @@ def get_character_list():
         print(f"Error: Unable to fetch server status. Status code: {response.status_code}")
         return None
 
-# Function to get the individual character information
-# def get_character_data():
-#     endpoint = f"{API_URL}/player/{player_name}/characters/{character_UUID}"
-#     response = requests.get(endpoint)
-    
-#     if response.status_code == 200:
-#         return response.json()
-#     else:
-#         print(f"Error: Unable to fetch server status. Status code: {response.status_code}")
-#         return None
-
 # # Function to get those characters ability maps
 # def get_character_abilities():
-#     for
     
 #     endpoint = f"{API_URL}/player/{player_name}/characters/{character_UUID}/abilities"
 #     response = requests.get(endpoint)
@@ -64,22 +52,14 @@ if __name__ == "__main__":
     if player_stats:
         print(f"\nPlayer Stats for {player_name}:")
         print(player_stats)
-        json.dump(player_stats, File_object, indent = 6)
+        json.dump(player_stats, file_object, indent = 6)
     
     # Get character list
     character_list = get_character_list()
     if character_list:
         print("\nCharacter List:")
         print(character_list)
-        json.dump(character_list, File_object, indent = 6)
 
-    # # Get character data and abilities
-    
-    
-    # character_data = get_character_data()
-    # if character_data:
-    #     print("\nCharacter Data:")
-    #     print(character_data)
-    #     json.dump(character_data, File_object, indent = 6)  
+        json.dump(character_list, file_object, indent = 6)
 
-    File_object.close()
+    file_object.close()
